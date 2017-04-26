@@ -7,6 +7,10 @@ module RemoteSass
       @location
     end
 
+    def add_location(location)
+      Sass.load_paths << Sass::Importers::HTTP.new(location)
+    end
+
     def location= location
       @location = location
       Sass.load_paths << Sass::Importers::HTTP.new(location)
